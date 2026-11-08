@@ -16,7 +16,7 @@ class ShouldTests extends TestCase {
 		$this->shouldSucceed(fn() => 123 |> Should::be(123));
 		$this->shouldSucceed(fn() => "foo" |> Should::be("foo"));
 
-		$this->shouldFail(fn() => true |> Should::be(false));
+		$this->shouldFail(fn() => false |> Should::be(true));
 		$this->shouldFail(fn() => 456 |> Should::be(123));
 		$this->shouldFail(fn() => "bar" |> Should::be("foo"));
 	}
