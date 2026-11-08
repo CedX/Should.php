@@ -1,0 +1,19 @@
+name: ContinuousIntegration
+on: push
+
+jobs:
+  Test:
+    runs-on: windows-latest
+    steps:
+      - name: Fetch sources
+        uses: actions/checkout@v7
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          coverage: none
+          extensions: curl, intl, mbstring, simplexml
+          php-version: latest
+      - name: Install dependencies
+        run: php Scripts/Install.php
+      - name: Run tests
+        run: php Scripts/Test.php
