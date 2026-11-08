@@ -1,0 +1,38 @@
+{
+	"description": "A thin BDD wrapper around PHPUnit assertions.",
+	"homepage": "https://github.com/CedX/Should.php",
+	"license": "MIT",
+	"name": "cedx/should",
+	"type": "library",
+	"version": "2026.11.0",
+	"authors": [
+		{"email": "cedx@outlook.com", "homepage": "https://cedric-belin.fr", "name": "Cédric Belin"}
+	],
+	"autoload": {
+		"psr-4": {"Belin\\Should\\": "Sources/"}
+	},
+	"autoload-dev": {
+		"psr-4": {"Belin\\Should\\": "Tests/"}
+	},
+	"config": {
+		"platform-check": false
+	},
+	"keywords": [
+		"assertion",
+		"bdd",
+		"phpunit",
+		"test",
+		"testing"
+	],
+	"require": {
+		"php": ">=8.5.0",
+		"phpunit/phpunit": "^13.4.6"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^2.3.5"
+	},
+	"support": {
+		"docs": "https://github.com/CedX/Should.php/tree/main/Documentation",
+		"issues": "https://github.com/CedX/Should.php/issues"
+	}
+}
