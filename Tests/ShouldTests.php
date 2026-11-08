@@ -10,12 +10,24 @@ use PHPUnit\Framework\Attributes\{Test, TestDox};
 #[TestDox("Should")]
 class ShouldTests extends TestCase {
 
+	#[Test, TestDox("be()")]
+	public function be(): void {
+		$this->shouldSucceed(fn() => true |> Should::be(true));
+		$this->shouldSucceed(fn() => 123 |> Should::be(123));
+		$this->shouldSucceed(fn() => "foo" |> Should::be("foo"));
+
+		$this->shouldFail(fn() => true |> Should::be(false));
+		$this->shouldFail(fn() => 456 |> Should::be(123));
+		$this->shouldFail(fn() => "bar" |> Should::be("foo"));
+	}
+
 	#[Test, TestDox("beEmpty()")]
 	public function beEmpty(): void {
-		$this->shouldFail(fn() => "foo" |> Should::beEmpty());
-		$this->shouldFail(fn() => [""] |> Should::beEmpty());
 		$this->shouldSucceed(fn() => "" |> Should::beEmpty());
 		$this->shouldSucceed(fn() => [] |> Should::beEmpty());
+
+		$this->shouldFail(fn() => "foo" |> Should::beEmpty());
+		$this->shouldFail(fn() => [""] |> Should::beEmpty());
 	}
 
 	/**
