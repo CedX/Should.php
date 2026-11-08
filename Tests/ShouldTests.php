@@ -12,22 +12,22 @@ class ShouldTests extends TestCase {
 
 	#[Test, TestDox("be()")]
 	public function be(): void {
-		$this->shouldSucceed(fn() => true |> Should::be(true));
-		$this->shouldSucceed(fn() => 123 |> Should::be(123));
-		$this->shouldSucceed(fn() => "foo" |> Should::be("foo"));
+		self::shouldSucceed(fn() => true |> Should::be(true));
+		self::shouldSucceed(fn() => 123 |> Should::be(123));
+		self::shouldSucceed(fn() => "foo" |> Should::be("foo"));
 
-		$this->shouldFail(fn() => false |> Should::be(true));
-		$this->shouldFail(fn() => 456 |> Should::be(123));
-		$this->shouldFail(fn() => "bar" |> Should::be("foo"));
+		self::shouldFail(fn() => false |> Should::be(true));
+		self::shouldFail(fn() => 456 |> Should::be(123));
+		self::shouldFail(fn() => "bar" |> Should::be("foo"));
 	}
 
 	#[Test, TestDox("beEmpty()")]
 	public function beEmpty(): void {
-		$this->shouldSucceed(fn() => "" |> Should::beEmpty());
-		$this->shouldSucceed(fn() => [] |> Should::beEmpty());
+		self::shouldSucceed(fn() => "" |> Should::beEmpty());
+		self::shouldSucceed(fn() => [] |> Should::beEmpty());
 
-		$this->shouldFail(fn() => "foo" |> Should::beEmpty());
-		$this->shouldFail(fn() => [""] |> Should::beEmpty());
+		self::shouldFail(fn() => "foo" |> Should::beEmpty());
+		self::shouldFail(fn() => [""] |> Should::beEmpty());
 	}
 
 	/**
