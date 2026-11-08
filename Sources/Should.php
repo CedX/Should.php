@@ -157,7 +157,7 @@ class Should {
 	 * @return \Closure The closure that tests whether the specified string matches the given regular expression.
 	 */
 	public static function matchRegex(string $pattern): \Closure {
-		return static fn(string $value) => Assert::assertDoesNotMatchRegularExpression($pattern, $value);
+		return static fn(string $value) => Assert::assertMatchesRegularExpression($pattern, $value);
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Should {
 	 * @return \Closure The closure that tests whether the specified string does not match the given regular expression.
 	 */
 	public static function notMatchRegex(string $pattern): \Closure {
-		return static fn(string $value) => Assert::assertMatchesRegularExpression($pattern, $value);
+		return static fn(string $value) => Assert::assertDoesNotMatchRegularExpression($pattern, $value);
 	}
 
 	/**
