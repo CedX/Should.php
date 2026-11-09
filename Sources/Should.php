@@ -130,7 +130,7 @@ class Should {
 	 * @return \Closure The closure that tests whether the specified collection contains the given element.
 	 */
 	public static function contain(mixed $expected): \Closure {
-		return static fn(iterable $collection) => Assert::assertContains($expected, $collection);
+		return static fn(iterable $sequence) => Assert::assertContains($expected, $sequence);
 	}
 
 	/**
@@ -183,7 +183,7 @@ class Should {
 	 * @return \Closure The closure that tests whether the specified collection does not contain the given element.
 	 */
 	public static function notContain(mixed $expected): \Closure {
-		return static fn(iterable $collection) => Assert::assertNotContains($expected, $collection);
+		return static fn(iterable $sequence) => Assert::assertNotContains($expected, $sequence);
 	}
 
 	/**
