@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 
 $this->assertTrue($condition);
 $this->assertEquals($expected, $actual);
-$this->assertGreaterThanOrEqual($lowerBound, $value);
+$this->assertGreaterThan($lowerBound, $value);
 $this->assertContains($value, $sequence);
 $this->assertCount($expected, $sequence);
 $this->assertStringEndsWith($suffix, $value);
