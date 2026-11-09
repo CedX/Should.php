@@ -30,6 +30,19 @@ class ShouldTests extends TestCase {
 		self::shouldFail(fn() => [""] |> Should::beEmpty());
 	}
 
+	#[Test, TestDox("beOfType()")]
+	public function beOfType(): void {
+    self::shouldSucceed(fn() => false |> Should::beOfType("bool"));
+    self::shouldSucceed(fn() => "123" |> Should::beOfType("string"));
+    self::shouldSucceed(fn() => 123 |> Should::beOfType("int"));
+    self::shouldSucceed(fn() => new \DateTime |> Should::beOfType(\DateTimeInterface::class));
+
+    self::shouldFail(fn() => 0 |> Should::beOfType("bool"));
+    self::shouldFail(fn() => "123" |> Should::beOfType("int"));
+    self::shouldFail(fn() => 123 |> Should::beOfType("string"));
+    self::shouldFail(fn() => new \stdClass |> Should::beOfType(\DateTimeInterface::class));
+	}
+
 	/**
 	 * Tests whether the specified action throws an `ExpectationFailedException` of the expected type.
 	 * @param callable $action The action to invoke.
